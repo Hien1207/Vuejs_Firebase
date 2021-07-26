@@ -1,24 +1,5 @@
-# vuejs-firebase
+# Vuejs_Firebase
 
-## Project setup
-```
-npm install
-```
+## Workflow: https://docs.google.com/spreadsheets/d/1zXtEwsSTxHlmJFNCijPd5ARMuaDjQ3noDxhBpBxfgUE/edit#gid=1115838130
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Admin UI: https://www.figma.com/file/ihIN8X8XmL6Nmz0YCIZuMd/Figma-Admin-Dashboard-UI-Kit-Community?node-id=597%3A2
