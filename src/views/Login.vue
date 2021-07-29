@@ -37,9 +37,9 @@ export default {
 <style scoped>
 .container{
   position: relative;
-    height: 25%;
-    width: 25%;
-    top:30%;
+    height: 300px;
+    width: 300px;
+    top:40%;
     left: 45%;
     transform: translate(-50%,-50%);
     display: block;
