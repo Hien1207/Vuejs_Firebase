@@ -19,19 +19,18 @@ export default {
 
 <style lang="scss">
 .nav{
+  width: 100%;
   display: flex;
   font-family: Matter,sans-serif;
   border-bottom: 1px solid #eff1f2;
 }
 .img{
-  margin-left: 5%;
   cursor: pointer;
 }
 .navbar-menu{
   display: flex;
   width: 40%;
-  margin-left: 4%;
-  margin-right: 20%;
+  margin-right: 5%;
 }
 .view{
   color:black;
@@ -46,8 +45,8 @@ export default {
   font-weight: 700;
 }
 .navbar-login{
-  width: 50%;
-  margin-left: 40%;
+  width: 20%;
+  margin-left: 5%;
 }
 .login-1{
   margin:20px 0px;
@@ -61,5 +60,18 @@ export default {
 .login-1:hover{
   background: black;
   color: white;
+}
+@media (min-width: 850px) {
+  .navbar-login{
+  width: 10%;
+  margin-left: 20%;
+  }
+  .navbar-menu{
+  margin-right: 20%;
+   margin-left: 4%;
+   }
+   .img{
+     margin-left: 5%;
+   }
 }
 </style>
