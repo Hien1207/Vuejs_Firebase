@@ -4,12 +4,28 @@
       <img src="http://boooya.aqvatarius.com/img/logo.png" @click="$router.push('/')" alt="logo" />
     </div>
     <div class="menu" @click="$emit('toggleMenu')">menu</div>
-    <div class="logout" @click="$router.push('/')">Log out</div>
+    <div class="logout" @click="signOut">Log out</div>
   </div>
 </template>
 
 <script>
-export default {};
+import firebase from "firebase/app";
+
+export default {
+  methods: {
+    signOut() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.replace("/")
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  }
+};
 </script>
 
 <style lang="scss" scoped>

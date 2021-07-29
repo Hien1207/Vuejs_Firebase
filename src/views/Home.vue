@@ -14,7 +14,6 @@
      <div class="container-s">
        <img src="https://static.wixstatic.com/media/9a25f2_86172ff490744ffda9e9aad07e225c02~mv2.png/v1/fill/w_315,h_566,al_c,q_85,usm_0.66_1.00_0.01/MobileHP.webp" class="contained-image">
      </div>
-    <HelloWorld/>
     </div>
     <div>
     <div class="container" style="display:block; margin-top:50px"> 
@@ -92,13 +91,8 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
-  }
 }
 </script>
 <style lang="scss" scoped>

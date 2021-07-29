@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <transition name="fade"  mode="out-in">
+    <transition name="fade" mode="out-in">
       <component :is="layout">
         <transition name="slide-fade" mode="out-in">
           <router-view />
@@ -10,22 +10,14 @@
   </div>
 </template>
 <script>
-import defaultLayout from './layout/default.vue'
-import unauthLayout from './layout/unauth.vue'
-import secretLayout from './layout/secret.vue'
+import defaultLayout from "./layout/default.vue";
+import unauthLayout from "./layout/unauth.vue";
+import secretLayout from "./layout/secret.vue";
 export default {
   components: {
     defaultLayout,
     unauthLayout,
-    secretLayout
-  },
-  data() {
-    return {
-      loggedIn: true,
-    }
-  },
-  created() {
-    console.log(this.$route);
+    secretLayout,
   },
   computed: {
     layout() {
@@ -40,12 +32,12 @@ export default {
           return "secretLayout";
       }
       return "defaultLayout";
-    }, 
-  }
-}
+    },
+  },
+};
 </script>
 
-<style >
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -55,10 +47,10 @@ export default {
 }
 
 .slide-fade-enter-active {
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
 .slide-fade-enter, .slide-fade-leave-to
 /* .slide-fade-leave-active below version 2.1.8 */ {
@@ -66,8 +58,9 @@ export default {
   opacity: 0;
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
