@@ -1,0 +1,45 @@
+@font-face {
+    font-family: futura-light;
+    src: url("/fonts/SFUFuturaLight.TTF") format('truetype');
+}
+@font-face {
+    font-family: futura-regular;
+    src: url("/fonts/SFUFuturaRegular.TTF") format('truetype');
+}
+@font-face {
+    font-family: futura-bold;
+    src: url("/fonts/SFUFuturaBold.TTF") format('truetype');
+}
+:root {
+    --yellow-active: #7D5243;
+    --gray-text: #585656;
+    --black-text: #000000;
+    --blue-hover: #4662C2;
+    --title-size: 28px;
+    --content-text: 18px;
+    --normal-text: 16px;
+    --small-text: 12px;
+    --font-light: futura-light;
+    --font-regular: futura-regular;
+    --font-bold: futura-bold;
+}
+html {
+    font-family: futura-light;
+    font-size: 16px;
+}
+a:hover {
+    color: var(--blue-hover);
+}
+.blog-title, .blog-sub-title {
+    color: var(--black-text);
+    font-size: var(--title-size);
+    font-family: futura-bold;
+}
+.blog-descript {
+    color: var(--black-text);
+    font-size: var(--normal-text);
+}
+.blog-content {
+    color: var(--black-text);
+    font-size: var(--content-text);
+}
