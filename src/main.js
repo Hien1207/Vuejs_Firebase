@@ -164,4 +164,5 @@ firebase.initializeApp(firebaseConfig);
 new Vue({
   router,
   render: (h) => h(App),
+  store: store,
 }).$mount("#app");
