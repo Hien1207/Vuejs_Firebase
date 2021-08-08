@@ -40,7 +40,7 @@
           Forgot Password?
         </h4>
       </div>
-      <p class="texted">— Or Sign In With —</p>
+      <p class="textab">— Or Sign In With —</p>
       <div class="in">
         <a href="#" class="social" style="margin-right: 20px">Facebook</a>
         <a href="#" class="social"> Twitter</a>
@@ -147,7 +147,7 @@ export default {
   color: white;
   font-size: 1rem;
 }
-.texted {
+.textab {
   text-align: center;
   color: white;
   margin-top: 20px;

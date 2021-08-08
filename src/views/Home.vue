@@ -154,8 +154,8 @@ export default {
     margin-left: 8rem;
 }
 .VueStar__decoration {
+    top:-40px;
     left: -40px;
-    top: -40px;
 }
 .allblog{
   margin: 5% 0% ;
