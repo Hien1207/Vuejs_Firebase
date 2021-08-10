@@ -13,6 +13,7 @@
     "element-ui": "^2.15.3",
     "firebase": "^8.8.1",
     "vue": "^2.6.11",
+    "vue-burger": "^1.1.0",
     "vue-router": "^3.2.0",
     "vuex": "^3.6.2"
   },

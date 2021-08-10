@@ -1,116 +1,209 @@
 <template>
   <div class="nav">
-    <img
-      class="img"
-      @click="$router.push('/').catch(()=>{})"
-      src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNzhweCIgaGVpZ2h0PSIzMHB4IiB2aWV3Qm94PSIwIDAgNzggMzAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDU4ICg4NDY2MykgLSBodHRwczovL3NrZXRjaC5jb20gLS0+CiAgICA8dGl0bGU+V2l4TG9nbzwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxnIGlkPSJXaXhMb2dvIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0id2l4X2xvZ28tY29weSIgZmlsbD0iIzAwMDAwMCIgZmlsbC1ydWxlPSJub256ZXJvIj4KICAgICAgICAgICAgPHBhdGggZD0iTTQzLjk1MDAyNjcsMC41MjEwODQ1NzIgQzQyLjUyOTA3NywxLjI2NjAyNDgzIDQyLDIuNTIzNjEyMTQgNDIsNiBDNDIsNiA0Mi43MTkzNjY5LDUuMzA0MDEwNDIgNDMuNzg2NDEzLDQuOTE1OTY1MDggQzQ0LjU2NDQ2NzQsNC42MzQ3MjEyMSA0NS4yMjg3MDM2LDQuMjA1NzM1MyA0NS42MTI4NDAxLDMuOTIzNjAxNDIgQzQ2LjgxNDE1NjIsMy4wNDMzNzkzIDQ3LDEuOTA5NTAzNjkgNDcsMC4wMDEzMTc0MTYyNyBDNDcsMC4wMDEzMTc0MTYyNyA0NS4wNDE5NzA1LC0wLjA1MjA4MzMxOTUgNDMuOTUwMDI2NywwLjUyMTA4NDU3MiIgaWQ9IkZpbGwtMSI+PC9wYXRoPgogICAgICAgICAgICA8cGF0aCBkPSJNMzMuMzU3MTc2OSw0LjI5MzY5MjMxIEwyOS4yNDI3Mjc3LDIwLjMxNDc2MjUgTDI1LjgxOTc0MjUsNy4yMDI2OTMwOCBDMjUuNDg2ODg2LDUuODA5MDU2NDcgMjQuODg2MDI3Nyw0LjA4NTcwMTE2IDIzLjkzNTE0NTUsMi45MjAxODM4OCBDMjIuNzIzODkxMywxLjQzNTQ5MTIzIDIwLjI2MjI3OTQsMS4zNDE1NTk3NCAyMC4wMDA5NTM3LDEuMzQxNTU5NzQgQzE5LjczNzcyMDYsMS4zNDE1NTk3NCAxNy4yNzYxMDg3LDEuNDM1NDkxMjMgMTYuMDY1ODA4MywyLjkyMDE4Mzg4IEMxNS4xMTQ5MjYsNC4wODU3MDExNiAxNC41MTQwNjc3LDUuODA5MDU2NDcgMTQuMTgwMjU3NSw3LjIwMjY5MzA4IEwxMC43NTgyMjYsMjAuMzE0NzYyNSBMNi42NDM3NzY4Miw0LjI5MzY5MjMxIEM2LjY0Mzc3NjgyLDQuMjkzNjkyMzEgNi4yODA0MDA1NywyLjUzODcwNzAxIDUuMDM3NjcyODYsMS40MzgzNjY2OCBDMy4wMjI0MTI5NywtMC4zNDcyOTAxMzMgMCwwLjAzNDE4NjczODkgMCwwLjAzNDE4NjczODkgTDcuODc5ODI4MzIsMjkuOTc1MzI4OCBDNy44Nzk4MjgzMiwyOS45NzUzMjg4IDEwLjQ3OTczMjksMzAuMTY0MTUwMyAxMS43Nzk2ODUzLDI5LjQ5NzA0NSBDMTMuNDg3ODM5OCwyOC42MjE5NDg1IDE0LjMwMTM4MjksMjcuOTQ3MTc1MyAxNS4zMzYxOTQ1LDIzLjg3MjY1NzMgQzE2LjI1NzUxMDcsMjAuMjQwOTU5MiAxOC44MzQ1MjU1LDkuNTczMDI1NTIgMTkuMDc0ODY4OSw4LjgxMjk0NzIyIEMxOS4xOTQwODY4LDguNDM4MTc5NzMgMTkuMzQ0Nzc4Miw3LjU0MTAzODE1IDIwLjAwMDk1MzcsNy41NDEwMzgxNSBDMjAuNjcxNDM1Myw3LjU0MTAzODE1IDIwLjgwODc3NDQsOC40MzgxNzk3MyAyMC45MjUxMzExLDguODEyOTQ3MjIgQzIxLjE2MTY1OTUsOS41NzM5ODM5OCAyMy43NDI0ODkyLDIwLjI0MDk1OTIgMjQuNjY0NzU5MiwyMy44NzI2NTczIEMyNS42OTg2MTcxLDI3Ljk0NzE3NTMgMjYuNTEzMTEzOSwyOC42MjE5NDg1IDI4LjIyMTI2ODQsMjkuNDk3MDQ1IEMyOS41MjEyMjA4LDMwLjE2NDE1MDMgMzIuMTIxMTI1NCwyOS45NzUzMjg4IDMyLjEyMTEyNTQsMjkuOTc1MzI4OCBMNDAsMC4wMzQxODY3Mzg5IEM0MCwwLjAzNDE4NjczODkgMzYuOTc4NTQwNywtMC4zNDcyOTAxMzMgMzQuOTYzMjgwOCwxLjQzODM2NjY4IEMzMy43MTk1OTk0LDIuNTM4NzA3MDEgMzMuMzU3MTc2OSw0LjI5MzY5MjMxIDMzLjM1NzE3NjksNC4yOTM2OTIzMSBaIiBpZD0iRmlsbC0zIj48L3BhdGg+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik00Ni45OTczMzI0LDUgQzQ2Ljk5NzMzMjQsNSA0Ni41Mzc2MTM0LDUuNzYyNzg4NjQgNDUuNDkwMTI5OCw2LjM5MTkyMjIgQzQ0LjgxNjExMjQsNi43OTY3MDYxNSA0NC4xNjk2NjAzLDcuMDY5NzQ0MzkgNDMuNDc2OTY5Niw3LjQyNjc5NDM5IEM0Mi4zMTQ3Nzg2LDguMDI1Mzc4MjEgNDIsOC42OTE3NDQyNiA0Miw5LjcwOTQzMjI2IEw0MiwxMC4wNDgzNDMzIEw0MiwxMS42MTk3NDUyIEw0MiwxMS42NjE3NTEgTDQyLDEyLjAxNTkzNzEgTDQyLDI5Ljk1MzQwMzUgQzQyLDI5Ljk1MzQwMzUgNDMuODUzOTkyNSwzMC4yMDQ0ODQxIDQ1LjA2Njg2ODMsMjkuNTQwOTgyMSBDNDYuNjI3NDIzMSwyOC42ODc0OTkgNDYuOTg1NzcyNywyNy44NjI2NTYyIDQ3LDI0LjE1MzcyNzcgTDQ3LDYuMDc5NzQyMTIgTDQ2Ljk5NzMzMjQsNi4wNzk3NDIxMiBMNDYuOTk3MzMyNCw1IFoiIGlkPSJGaWxsLTUiPjwvcGF0aD4KICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwLTkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUwLjAwMDAwMCwgMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0xNy42ODQwNTg3LDE1LjAwNzIxMjIgTDI3Ljg5NDU2NjksMC4xNTk5MDE2MyBDMjcuODk0NTY2OSwwLjE1OTkwMTYzIDIzLjU4NTU2MjksLTAuNTU3MTM0MzQgMjEuNDUxNTE1MSwxLjM0MTYzMDI0IEMyMC4wODY5MzIzLDIuNTU2Njg3MiAxOC41NTg3MTYzLDQuNzQyMDc1NzIgMTguNTU4NzE2Myw0Ljc0MjA3NTcyIEwxNC44MDI5NDgsMTAuMDM2NTI0NiBDMTQuNjIwODA4OCwxMC4zMTE3MjE2IDE0LjM4MTIwMzMsMTAuNjExNjc2OSAxNC4wMDEzNDA4LDEwLjYxMTY3NjkgQzEzLjYyMDUwNDMsMTAuNjExNjc2OSAxMy4zODA4OTg4LDEwLjMxMTcyMTYgMTMuMTk5NzMzNiwxMC4wMzY1MjQ2IEw5LjQ0MjAxNzIsNC43NDIwNzU3MiBDOS40NDIwMTcyLDQuNzQyMDc1NzIgNy45MTU3NDkzMywyLjU1NjY4NzIgNi41NTAxOTI0OCwxLjM0MTYzMDI0IEM0LjQxNzExODY0LC0wLjU1NzEzNDM0IDAuMTA3MTQwNjk1LDAuMTU5OTAxNjMgMC4xMDcxNDA2OTUsMC4xNTk5MDE2MyBMMTAuMzE3NjQ4OSwxNS4wMDcyMTIyIEwwLjEzMzQzODg2NSwyOS44MDc4NjMgQzAuMTMzNDM4ODY1LDI5LjgwNzg2MyA0LjYyMTY1OTk2LDMwLjM2MjA2NjEgNi43NTU3MDc4MSwyOC40NjMzMDE2IEM4LjEyMTI2NDY2LDI3LjI0NzI5MjQgOS40NDIwMTcyLDI1LjI3MjM0ODYgOS40NDIwMTcyLDI1LjI3MjM0ODYgTDEzLjE5OTczMzYsMTkuOTc3ODk5OCBDMTMuMzgwODk4OCwxOS43MDI3MDI3IDEzLjYyMDUwNDMsMTkuNDAyNzQ3NCAxNC4wMDEzNDA4LDE5LjQwMjc0NzQgQzE0LjM4MTIwMzMsMTkuNDAyNzQ3NCAxNC42MjA4MDg4LDE5LjcwMjcwMjcgMTQuODAyOTQ4LDE5Ljk3Nzg5OTggTDE4LjU1ODcxNjMsMjUuMjcyMzQ4NiBDMTguNTU4NzE2MywyNS4yNzIzNDg2IDE5Ljk1ODM2MzQsMjcuMjQ3MjkyNCAyMS4zMjM5MjAzLDI4LjQ2MzMwMTYgQzIzLjQ1Nzk2ODEsMzAuMzYyMDY2MSAyNy44NjcyOTQ3LDI5LjgwNzg2MyAyNy44NjcyOTQ3LDI5LjgwNzg2MyBMMTcuNjg0MDU4NywxNS4wMDcyMTIyIFoiIGlkPSJGaWxsLTciPjwvcGF0aD4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+"
-    />
-    <div class="navbar-menu">
-      <router-link class="view" to="/about">About</router-link>
-      <router-link class="view" to="/blogs">Blogs</router-link>
-    </div>
-    <p v-if="loggedIn" @click="signOut" class="user">
-        {{ userinfo }}
-      </p>
-    <div v-else class="navbar-login">
-      <button @click="$router.push('/auth/login')" class="login-1">
-        Login
-      </button>
-    </div>
+    <el-row class="container">
+      <el-col :span="24">
+        <div class="nav--left">
+          <div class="search-box">
+            <div class="search-box__icon">
+              <i class="el-icon-search"></i>
+            </div>
+            <div class="search-box__input">
+              <input type="text" placeholder="Search..." />
+            </div>
+          </div>
+        </div>
+        <div class="nav--right">
+          <div class="nav__mobile-menu" @click="toggleMobileMenu">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="nav__menu" :class="{ show: showMobileMenu }">
+            <div class="nav__mobile-close" @click="toggleMobileMenu">
+              <i class="fas fa-times"></i>
+            </div>
+            <router-link
+              v-for="item in navItems"
+              :key="item.name"
+              class="nav__menu__items"
+              :class="[routerPath == item.slug ? 'active' : '']"
+              :to="item.slug"
+              >{{ item.name }}</router-link
+            >
+            <div class="nav__login">Login / Sign Up</div>
+          </div>
+        </div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script>
-import firebase from "firebase/app";
-
+import VBurger from "vue-burger";
 export default {
-  created() {
-    firebase.auth().onAuthStateChanged((user) => {
-      this.loggedIn = !!user;
-    });
-  },
-  methods: {
-    signOut() {
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          this.$router.replace("/auth/login")
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
+  component: {
+    VBurger,
   },
   data() {
     return {
+      showMobileMenu: false,
+      navItems: [
+        {
+          name: "Home",
+          slug: "/",
+          isActive: false,
+        },
+        {
+          name: "About",
+          slug: "/about",
+          isActive: false,
+        },
+        {
+          name: "Blog",
+          slug: "/blogs",
+          isActive: false,
+        },
+      ],
       loggedIn: "",
-    }
+    };
   },
   computed: {
-    userinfo() {
-      const user = firebase.auth().currentUser;
-      return user.email;
-    }
-  }
+    routerPath() {
+      return this.$route.path;
+    },
+  },
+  methods: {
+    toggleMobileMenu() {
+      this.showMobileMenu = !this.showMobileMenu;
+    },
+  },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.el-col {
+  display: flex;
+  justify-content: space-between;
+}
+.nav--right,
+.nav--left,
+.search-box {
+  display: flex;
+}
+.search-box {
+  align-items: center;
+  padding: 10px 0;
+  &__icon {
+    font-size: 16px;
+    color: var(--black-text);
+    padding-right: 10px;
+  }
+  &__input {
+    input {
+      border: none;
+      font-family: futura-regular;
+    }
+    input::placeholder {
+      font-family: futura-regular;
+      color: var(--black-text);
+      font-size: var(--small-text);
+      text-transform: uppercase;
+    }
+  }
+}
+.search-box:hover {
+  border-bottom: 1px solid #000000;
+}
+.search-box:focus-within {
+  border-bottom: 1px solid #000000;
+}
 .nav {
-  width: 100%;
-  display: flex;
-  font-family: Matter, sans-serif;
-  border-bottom: 1px solid #eff1f2;
-}
-.img {
-  cursor: pointer;
-}
-.navbar-menu {
-  display: flex;
-  width: 40%;
-  margin-right: 5%;
-}
-.view {
-  color: black;
-  font-family: "Courier New", Courier, monospace;
-  text-decoration: none;
-  width: 18%;
-  margin: 1.7rem;
-  text-align: center;
-  font-size: 18px;
-}
-.router-link-active {
-  font-weight: 700;
-}
-.navbar-login {
-  width: 20%;
-  margin-left: 5%;
-}
-.login-1 {
-  margin: 20px 0px;
-  font-size: 22px;
-  width: 100px;
-  font-weight: 100;
-  background: white;
-  cursor: pointer;
-  transition: all 0.8s ease-in-out;
-}
-.login-1:hover {
-  background: black;
-  color: white;
-}
-@media (min-width: 850px) {
-  .navbar-login {
-    width: 10%;
-    margin-left: 20%;
+  padding: 10px 0;
+  color: var(--gray-text);
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    background-color: #ffffff;
+    font-size: 16px;
+    transition: 0.3s ease;
+    opacity: 0;
+    &__items {
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 10px 0;
+      font-size: var(--small-text);;
+      order: 1;
+    }
+    &__items:visited {
+      color: var(--gray-text);
+    }
+    &__items:hover {
+      color: var(--yellow-active);
+    }
   }
-  .navbar-menu {
-    margin-right: 20%;
-    margin-left: 4%;
+  &__mobile-menu {
+    font-size: 16px;
   }
-  .img {
-    margin-left: 5%;
+  &__mobile-close {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    font-size: var(--title-size);
   }
+  &__login {
+    font-size: 14px;
+    color: var(--blue-hover);
+    border: 1px solid var(--blue-hover);
+    margin-bottom: 10px;
+    padding: 5px 24px;
+    cursor: pointer;
+    order: 0;
+  }
+  &__login:hover {
+    text-decoration: underline;
+  }
+  &--right,
+  &--left {
+    align-items: center;
+  }
+}
+.show {
+  right: 0;
+  transition: 0.3s ease;
+  opacity: 1;
+}
+.active {
+  color: var(--blue-hover);
+}
+@media (min-width: 768px) {
+  .nav {
+    &__mobile-menu,
+    &__mobile-close {
+      display: none;
+    }
+    &__menu {
+      position: relative;
+      flex-direction: row;
+      &__items {
+        padding: 0 10px;
+      }
+      opacity: 1;
+      right: 0;
+    }
+    &__login {
+      order: 1;
+      margin: 0 0 0 50px;
+    }
+  }
+  .active {
+    color: var(--yellow-active);
+  }
+}
+@media (min-width: 992px) {
 }
 </style>

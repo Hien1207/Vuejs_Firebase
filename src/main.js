@@ -142,6 +142,12 @@ const store = new Vuex.Store({
         "author":"Admin",
         "date":"Jul 19"
       }
+    ],
+    category: [
+      "All Posts",
+      "Not Vue",
+      "Cli",
+      "Vue"
     ]
   }
 })
