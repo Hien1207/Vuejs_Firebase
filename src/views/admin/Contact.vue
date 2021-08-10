@@ -45,7 +45,7 @@
         <div>
         <input
           v-model="message"
-          class="form-control-ba" style="width:90%;height:80px"
+          class="form-control-b" style="width:90%;height:80px"
           required
         />
         </div>
