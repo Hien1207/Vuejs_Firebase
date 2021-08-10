@@ -11,7 +11,6 @@ import Profile from "../views/admin/Profile.vue";
 import Posting from "../views/admin/Posting.vue";
 import Archives from "../views/admin/Archives.vue";
 import AboutAd from "../views/admin/About.vue";
-import About from "../views/admin/About.vue";
 import Contact from "../views/admin/Contact.vue";
 
 Vue.use(VueRouter)
