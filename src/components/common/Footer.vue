@@ -53,7 +53,6 @@ export default {
 
 <style>
 .footer{
-<<<<<<< HEAD
   position: static;
     display: grid;
     height: auto;
@@ -162,43 +161,4 @@ export default {
     margin:1% 28% 4%;
 }
 }
-=======
-  display: block;
-  font-family: Matter,sans-serif;
-  width: 100%;
-  height: 250px;
-  border-top: 1px solid #bababb;
-}
-.footer-col{
-    width: 30%;
-    margin: 20px ;
-}
-.wi{
-  width: 90%;
-  margin: 0px 20px;
-}
-.logo-icons{
-    width: 50%;
-    max-width: 190px;
-    margin-right: 0;
-    margin: 12% 40%;
-}
-.values{
-  margin-left:20%;
-}
-@media (min-width: 700px) {
-  .footer{
-    display: flex;
-  }
-  .footer-col{
-    width: 30%;
-    margin: 20px ;
-  }
-  .wi{
-    width:50%;
-    margin-top:50px
-  }
-}
-
->>>>>>> origin/master
 </style>
