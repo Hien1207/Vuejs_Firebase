@@ -5,7 +5,6 @@ import Home from '../views/Home.vue';
 import Blogs from '../views/Blogs.vue';
 import Archive from '../views/Archive.vue';
 
-import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import HomeAd from "../views/admin/Home.vue";
 import Profile from "../views/admin/Profile.vue";
@@ -30,14 +29,6 @@ const routes = [
   {
     path: '/blogs/:id',
     component: Archive
-  },
-  {
-    path: "/auth/login",
-    name: "Login",
-    component: Login,
-    meta: {
-      layout: 'unauth'
-    }
   },
   {
     path: "/auth/register",

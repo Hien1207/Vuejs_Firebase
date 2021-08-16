@@ -33,18 +33,21 @@
         </div>
       </el-col>
     </el-row>
+    <login/>
   </div>
 </template>
 
 <script>
-import VBurger from "vue-burger";
+import Login from '../uncommon/Login.vue';
+
 export default {
-  component: {
-    VBurger,
+  components: {
+    Login
   },
   data() {
     return {
       showMobileMenu: false,
+      showLogin: false,
       navItems: [
         {
           name: "Home",
@@ -74,6 +77,9 @@ export default {
     toggleMobileMenu() {
       this.showMobileMenu = !this.showMobileMenu;
     },
+    loginToggle() {
+      this.showLogin = !this.showLogin;
+    }
   },
 };
 </script>

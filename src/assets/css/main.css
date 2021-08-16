@@ -30,7 +30,14 @@ html {
   font-family: futura-regular;
   font-size: 16px;
 }
-h1, h2, h3, h4, h5, h6, p, span {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
   color: var(--black-text);
 }
 a:hover {
@@ -59,4 +66,14 @@ a:hover {
   .container {
     max-width: 960px;
   }
+}
+
+input,
+button {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
