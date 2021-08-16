@@ -10,7 +10,7 @@ import HomeAd from "../views/admin/Home.vue";
 import Profile from "../views/admin/Profile.vue";
 import Posting from "../views/admin/Posting.vue";
 import Archives from "../views/admin/Archives.vue";
-import About from "../views/admin/About.vue";
+import AboutAd from "../views/admin/About.vue";
 import Contact from "../views/admin/Contact.vue";
 
 Vue.use(VueRouter)
@@ -20,6 +20,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: About
   },
   {
     path: '/blogs',
@@ -73,7 +78,7 @@ const routes = [
   {
     path: "/admin/about",
     name: "About",
-    component: About,
+    component: AboutAd,
     meta: {
       layout: 'secret'
     }

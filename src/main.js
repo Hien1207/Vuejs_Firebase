@@ -6,6 +6,11 @@ import store from "./store/store";
 import ElementUI from 'element-ui';
 import firebase from "firebase/app";
 import './assets/css/main.css';
+import VueCarousel from 'vue-carousel';
+import VueStar from 'vue-star'
+
+Vue.component('VueStar', VueStar)
+Vue.use(VueCarousel);
 
 
 Vue.config.productionTip = false;

@@ -1,6 +1,6 @@
 <template>
   <div class="unauth__layout ">
-    <div class="image">
+    <div class="image-log">
       <p class="page"  @click="$router.push('/').catch(()=>{})">Trang chủ</p>
     <slot />
     </div>
@@ -15,7 +15,7 @@
     background-repeat: no-repeat;
     background-position: center center;
 }
-.image{
+.image-log{
     height: 100vh;
     background:rgba(5, 5, 5, 0.55);
     box-sizing: border-box;

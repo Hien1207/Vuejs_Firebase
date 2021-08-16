@@ -14,7 +14,7 @@
         <div>
         <input
           v-model="firstname"
-          class="form-control-b"
+          class="form-control-ba"
           required
         />
         </div>
@@ -24,7 +24,7 @@
         <div>
         <input
           v-model="lastname"
-          class="form-control-b"
+          class="form-control-ba"
           required
         />
         </div>
@@ -35,7 +35,7 @@
         <div>
         <input
           v-model="email"
-          class="form-control-b" style="width:90%"
+          class="form-control-ba" style="width:90%"
           required
         />
         </div>
@@ -94,7 +94,7 @@ export default {
   width: 93%;
   margin-bottom: 20px;
 }
-.form-control-b{
+.form-control-ba{
   border: none;
   border-bottom: 2px solid black;
 }
