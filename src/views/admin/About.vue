@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <template>
 <div class="container-a">
     <div class="container-left-ab">
@@ -43,3 +44,5 @@ font-family: "Times New Roman", Times, serif;
 }
 }
 </style>
+=======
+>>>>>>> master
