@@ -1,4 +1,3 @@
-
 <template>
   <div class="navbar">
     <div class="toggle" @click="$emit('toggleMenu')">
