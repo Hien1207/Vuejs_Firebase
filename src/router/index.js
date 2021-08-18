@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Blogs from '../views/Blogs.vue'
+import Archive from '../views/Archive.vue';
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import HomeAd from "../views/admin/Home.vue";
@@ -30,6 +31,10 @@ const routes = [
     path: '/blogs',
     name: 'Blogs',
     component: Blogs
+  },
+  {
+    path: '/blogs/:id',
+    component: Archive
   },
   {
     path: "/auth/login",
