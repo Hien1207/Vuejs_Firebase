@@ -1,254 +1,294 @@
 <template>
   <div class="home">
-      <div >
-        <img style="width:100%;height:380px;object-fit:cover; object-position: 50% 65%;" src="https://static.wixstatic.com/media/baac51_d623fe1790ed419a89d20aa05f6064b2.jpg/v1/fill/w_1197,h_500,al_c,q_85,usm_0.66_1.00_0.01/baac51_d623fe1790ed419a89d20aa05f6064b2.webp">
-      </div>
-      <div class="blog-v">
-          <div class="user" v-for="(showuser) in archives.slice(0,4)" :key="showuser.id">
-            <div class="image">
-                <img @click="gotoUserDetailPage(showuser.id)" class="imga" :src="showuser.banner" alt="" >
+    <div>
+      <img
+        style="
+          width: 100%;
+          height: 380px;
+          object-fit: cover;
+          object-position: 50% 65%;
+        "
+        src="https://static.wixstatic.com/media/baac51_d623fe1790ed419a89d20aa05f6064b2.jpg/v1/fill/w_1197,h_500,al_c,q_85,usm_0.66_1.00_0.01/baac51_d623fe1790ed419a89d20aa05f6064b2.webp"
+      />
+    </div>
+    <div class="blog-v">
+      <div
+        class="user"
+        v-for="showuser in archives.slice(0, 4)"
+        :key="showuser.id"
+      >
+        <div class="image">
+          <img
+            @click="gotoUserDetailPage(showuser.id)"
+            class="imga"
+            :src="showuser.banner"
+            alt=""
+          />
+        </div>
+        <div class="text">
+          <div class="ava">
+            <div style="width: 30px">
+              <img
+                class="avatar"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOIgbiAwf6mBkjE6iVQuxHMAHMXlcYvkshKJ9Tx-bexaRCbpR7WJNs7t_qh3Z4I8qe8HQ&usqp=CAU"
+              />
             </div>
-              <div class="text">
-                <div class="ava">
-                    <div style="width:30px">
-                      <img class="avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOIgbiAwf6mBkjE6iVQuxHMAHMXlcYvkshKJ9Tx-bexaRCbpR7WJNs7t_qh3Z4I8qe8HQ&usqp=CAU">
-                    </div>
-                    <div class="ad">
-                        <div class="ad-t">Admin 
-                          <img style="width:30%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHEOzIwWhwtvM0UxCHotRC4ZXMipGl4UivJWxGZQrBCuJ972BkzLhe9Mpf0P5iWVEIzbk&usqp=CAU">
-                        </div>
-                        <div class="ad-t">{{showuser.date}}
-                          <li style="margin:4px 4px 4px 8px;font-size:5px"></li>
-                          1 min
-                        </div>
-                    </div>
-                </div>
-                <div class="name" @click="gotoUserDetailPage(showuser.id)">
-                  <a style="font-size:var(--title-size);margin-bottom:5px">{{showuser.title}}</a>
-                  <h5 style="margin:5px 0px 60px;font-weight:1">{{showuser.subtitle}}</h5>
-                </div>
-                <div class="ad-t" style="margin-top:10px;">
-                    100 views <a style="margin:0px 10px;cursor:pointer" @click="gotoUserDetailPage(showuser.id)">0 comments</a>
-                    <vue-star animate="animated bounceIn" color="#F05654">
-                       <i slot="icon" class="fa fa-heart"></i>
-                    </vue-star>
-                </div>
+            <div class="ad">
+              <div class="ad-t">
+                Admin
+                <img
+                  style="width: 30%"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHEOzIwWhwtvM0UxCHotRC4ZXMipGl4UivJWxGZQrBCuJ972BkzLhe9Mpf0P5iWVEIzbk&usqp=CAU"
+                />
               </div>
+              <div class="ad-t">
+                {{ showuser.date }}
+                <li style="margin: 4px 4px 4px 8px; font-size: 5px"></li>
+                1 min
+              </div>
+            </div>
           </div>
-          <div class="allblog">
-             <button class="font-3" id="bt-all" @click="$router.push('/blogs')">View All Posts</button>
+          <div class="name" @click="gotoUserDetailPage(showuser.id)">
+            <a style="font-size: var(--title-size); margin-bottom: 5px">{{
+              showuser.title
+            }}</a>
+            <h5 style="margin: 5px 0px 60px; font-weight: 1">
+              {{ showuser.subtitle }}
+            </h5>
           </div>
+          <div class="ad-t" style="margin-top: 10px">
+            100 views
+            <a
+              style="margin: 0px 10px; cursor: pointer"
+              @click="gotoUserDetailPage(showuser.id)"
+              >0 comments</a
+            >
+            <vue-star animate="animated bounceIn" color="#F05654">
+              <i slot="icon" class="fa fa-heart"></i>
+            </vue-star>
+          </div>
+        </div>
       </div>
-      <div class="caro">
-          <carousel >
-              <carousel-slide v-for="slide in slides" :key="slide" class="carousel-slider">
-                  <img :src="slide" :alt="slide">
-              </carousel-slide>
-          </carousel>
+      <div class="allblog">
+        <button class="font-3" id="bt-all" @click="$router.push('/blogs')">
+          View All Posts
+        </button>
       </div>
+    </div>
+    <div class="caro">
+      <carousel>
+        <carousel-slide
+          v-for="slide in slides"
+          :key="slide"
+          class="carousel-slider"
+        >
+          <img :src="slide" :alt="slide" />
+        </carousel-slide>
+      </carousel>
+    </div>
   </div>
 </template>
 
 <script>
-import Carousel from '../components/Carousel.vue'
-import CarouselSlide from '../components/CarouselSlide.vue'
-import VueStar from 'vue-star'
+import Carousel from "../components/Carousel.vue";
+import CarouselSlide from "../components/CarouselSlide.vue";
+import VueStar from "vue-star";
 export default {
-   data(){
-    return{
-      slides:[
-        'https://static.parastorage.com/services/instagram-cdn/1.691.0/assets/ig-templates-accounts/Editor/Style & Design blog/01.jpg',
-        'https://static.parastorage.com/services/instagram-cdn/1.691.0/assets/ig-templates-accounts/Editor/Style & Design blog/02.jpg',
-        'https://static.parastorage.com/services/instagram-cdn/1.691.0/assets/ig-templates-accounts/Editor/Style & Design blog/03.jpg',
-        'https://static.parastorage.com/services/instagram-cdn/1.691.0/assets/ig-templates-accounts/Editor/Style & Design blog/04.jpg',
-        'https://static.parastorage.com/services/instagram-cdn/1.691.0/assets/ig-templates-accounts/Editor/Style & Design blog/05.jpg',
-        'https://static.parastorage.com/services/instagram-cdn/1.691.0/assets/ig-templates-accounts/Editor/Style & Design blog/06.jpg'
-        ]
-    }
-   },
-   components: {
+  data() {
+    return {
+      slides: [
+        "https://static.parastorage.com/services/instagram-cdn/1.691.0/assets/ig-templates-accounts/Editor/Style&Designblog/01.jpg",
+        "https://static.parastorage.com/services/instagram-cdn/1.691.0/assets/ig-templates-accounts/Editor/Style&Designblog/02.jpg",
+        "https://static.parastorage.com/services/instagram-cdn/1.691.0/assets/ig-templates-accounts/Editor/Style&Designblog/03.jpg",
+        "https://static.parastorage.com/services/instagram-cdn/1.691.0/assets/ig-templates-accounts/Editor/Style&Designblog/04.jpg",
+        "https://static.parastorage.com/services/instagram-cdn/1.691.0/assets/ig-templates-accounts/Editor/Style&Designblog/05.jpg",
+        "https://static.parastorage.com/services/instagram-cdn/1.691.0/assets/ig-templates-accounts/Editor/Style&Designblog/06.jpg",
+      ],
+    };
+  },
+  components: {
     Carousel,
     CarouselSlide,
-    VueStar
+    VueStar,
   },
   computed: {
-      archives() {
-         return this.$store.state.archives;
-      }
-   },
- methods:{
-   gotoUserDetailPage(id){
-     this.$router.push(`/user/${id}`)
-   }  
- },
-}
+    archives() {
+      return this.$store.state.archives;
+    },
+  },
+  methods: {
+    gotoUserDetailPage(id) {
+      this.$router.push(`/user/${id}`);
+    },
+  },
+};
 </script>
 
 <style coped>
-.home{
+.home {
   width: 100%;
   display: block;
 }
-.caro{
+.caro {
   display: flex;
   position: relative;
   box-sizing: border-box;
   justify-content: center;
   margin: 50px 0px;
 }
-.blog-v{
-   width: 90%;
-    margin:2% 5% 0%;
+.blog-v {
+  width: 90%;
+  margin: 2% 5% 0%;
 }
 .user {
-   display: block;
+  display: block;
   margin-bottom: 20px;
 }
-.image{
+.image {
   width: 60%;
-  font-family:var(--font-light);
+  font-family: var(--font-light);
 }
-.text{
-  width:90%;
+.text {
+  width: 90%;
   padding: 20px 0px;
-  font-family:var(--font-light);
+  font-family: var(--font-light);
   border: 1px solid var(--gray-boder);
 }
-.ava{
-   display: flex;
+.ava {
+  display: flex;
   margin-right: auto;
   padding-bottom: 5px;
 }
-.avatar{
+.avatar {
   width: 90%;
-  margin:2px 0px;
+  margin: 2px 0px;
   border-radius: 50%;
 }
-.ad{
+.ad {
   display: block;
 }
-.ad-t{
-  height:15px;
-  font-size:10px;
-  display:flex;
+.ad-t {
+  height: 15px;
+  font-size: 10px;
+  display: flex;
 }
-.name{
-  border-bottom:1px solid var(--gray-boder);
+.name {
+  border-bottom: 1px solid var(--gray-boder);
 }
-.name:hover{
-  color:var(--blue-hover);
+.name:hover {
+  color: var(--blue-hover);
   cursor: pointer;
 }
-.imga{
-  width:100%;
-  height:100px;
+.imga {
+  width: 100%;
+  height: 100px;
   cursor: pointer;
 }
 .VueStar {
-    position:relative;
-    cursor: pointer;
+  position: relative;
+  cursor: pointer;
 }
-.VueStar__ground{
-    width: 20px;
-    height: 15px;
-    margin-left: 8rem;
+.VueStar__ground {
+  width: 20px;
+  height: 15px;
+  margin-left: 8rem;
 }
 .VueStar__decoration {
-    top:-40px;
-    left: -40px;
+  top: -40px;
+  left: -40px;
 }
-.allblog{
-  margin: 5% 0% ;
+.allblog {
+  margin: 5% 0%;
 }
-#bt-all{
+#bt-all {
   background: var(--black-text);
   color: white;
   width: 300px;
   height: 40px;
   border: none;
-  transition:all 0.5s ease-in;
+  transition: all 0.5s ease-in;
 }
-#bt-all:hover{
+#bt-all:hover {
   background: var(--gray-boder);
   color: var(--black-text);
   cursor: pointer;
 }
 .carousel {
-        position:relative;
-        overflow: hidden;
-        width:300px;
-        height:200px;
-        z-index:10;
-    }
-    .btn {
-        padding:5px 10px;
-        background-color:rgba(0,0,0,0);
-        border:1px solid transparent;
-        margin:5px 10px;
-        color:var(--black-text);
-        height:50px;
-        width:50px;
-        position:absolute;
-        margin-top:-25px;
-        z-index:2;
-    }
-    .btn:hover {
-        cursor: pointer;
-    }
-    .btn:focus{
-        outline:none;
-    }
-    .btn-next {
-        top:50%;
-        right:0;
-    }
-    .btn-prev {
-        top:50%;
-        left:0;
-    }
-    .carousel-slider {
-        position:absolute;
-        top:0;
-        left:0;
-        bottom:0;
-        right:0;
-    }
-    .carousel-slider img {
-        width:100%;
-        height:100%;
-    }
+  position: relative;
+  overflow: hidden;
+  width: 300px;
+  height: 200px;
+  z-index: 10;
+}
+.btn {
+  padding: 5px 10px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid transparent;
+  margin: 5px 10px;
+  color: var(--black-text);
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  margin-top: -25px;
+  z-index: 2;
+}
+.btn:hover {
+  cursor: pointer;
+}
+.btn:focus {
+  outline: none;
+}
+.btn-next {
+  top: 50%;
+  right: 0;
+}
+.btn-prev {
+  top: 50%;
+  left: 0;
+}
+.carousel-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.carousel-slider img {
+  width: 100%;
+  height: 100%;
+}
 @media (min-width: 500px) {
-  .user{
+  .user {
     display: flex;
   }
-  .image{
+  .image {
     width: 50%;
   }
- .text{
-    width:50%;
+  .text {
+    width: 50%;
     padding: 20px 40px;
   }
-  .imga{
-  width:100%;
-  height:260px;
+  .imga {
+    width: 100%;
+    height: 260px;
   }
-  .VueStar__ground{
+  .VueStar__ground {
     margin-left: 12.5rem;
-}
-  .allblog{
-  margin: 5% 30% ;
+  }
+  .allblog {
+    margin: 5% 30%;
   }
 }
 @media (min-width: 700px) {
-  .blog-v{
+  .blog-v {
     width: 70%;
-    margin:2% 15% 0%;
+    margin: 2% 15% 0%;
   }
 }
 @media (min-width: 1200px) {
-  .blog-v{
+  .blog-v {
     width: 50%;
-    margin:2% 25% 0%;
+    margin: 2% 25% 0%;
   }
 }
 </style>
