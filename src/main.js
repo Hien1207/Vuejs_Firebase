@@ -36,4 +36,18 @@ new Vue({
   router,
   render: (h) => h(App),
   store,
+  created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        this.$store.dispatch('fetchUserData', user)
+        // ...
+      } else {
+        // User is signed out
+        // ...
+        // console.log(this.$store.state.user)
+      }
+    });
+  }
 }).$mount("#app");
