@@ -22,7 +22,7 @@ Vue.use(ElementUI);
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyDwlilc25tJEN9RnQG_RerZfUSQdVC9cR8",
-  authDomain: "vuejs-firebase-1d336.firebaseapp.com",
+  authDomain: "web2000.netlify.app",
   projectId: "vuejs-firebase-1d336",
   storageBucket: "vuejs-firebase-1d336.appspot.com",
   messagingSenderId: "1049087402909",
