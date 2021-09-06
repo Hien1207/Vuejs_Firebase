@@ -28,21 +28,24 @@
               :to="item.slug"
               >{{ item.name }}</router-link
             >
-            <div class="nav__login">Login / Sign Up</div>
+            <user-btn v-if="loggedIn" class="nav__login"/>
+            <div v-else class="nav__login" @click="loginToggle()">Login / Sign Up</div>
           </div>
         </div>
       </el-col>
     </el-row>
-    <login/>
+    <auth @loginToggle="showLogin=!showLogin" v-if="showLogin"/>
   </div>
 </template>
 
 <script>
-import Login from '../uncommon/Login.vue';
+import Auth from '../uncommon/Auth.vue';
+import UserBtn from '../uncommon/UserBtn.vue';
 
 export default {
   components: {
-    Login
+    Auth,
+    UserBtn
   },
   data() {
     return {
@@ -65,13 +68,7 @@ export default {
           isActive: false,
         },
       ],
-      loggedIn: "",
     };
-  },
-  computed: {
-    routerPath() {
-      return this.$route.path;
-    },
   },
   methods: {
     toggleMobileMenu() {
@@ -79,6 +76,14 @@ export default {
     },
     loginToggle() {
       this.showLogin = !this.showLogin;
+    }
+  },
+    computed: {
+    routerPath() {
+      return this.$route.path;
+    },
+    loggedIn() {
+      return this.$store.getters.loggedIn
     }
   },
 };
