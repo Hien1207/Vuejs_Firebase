@@ -61,6 +61,7 @@ export default {
 .form-control-ad{
     width: 90%;
     height: 25px;
+    border:1px solid black;
 }
 .subscribe{
     width: 90%;

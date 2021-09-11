@@ -1,168 +1,162 @@
 <template>
-  <div >
-    <div class="containerd">
-    <div class="container-leftd"  style="margin-top:100px">
-        <h1 class="hero__header">You’re in good company</h1>
-        <p class="p-text">Trusted by the forward-thinking companies.</p>    
+  <div class="container-media">
+    <el-row >
+      <div class="center">
+        <h1>Upload a photo</h1>
+      </div>
+    </el-row>
+    <el-row>
+         <div class="center" >
+           <button  id="btn" @click="click1" style="border:1px solid black;font-size:18px">Choose photo</button>
+           <input type="file" ref="input1"
+            style="display: none"
+            @change="previewImage" accept="image/*" >                
+         </div>
+ 
+       <div v-if="imageData!=null" class="ig">                     
+          <img class="preview" height="268" width="356" :src="file.img1">
+       <br>
+       </div>  
+    </el-row>
+    <el-row>
+      <div class="center">
+        <input type="text" class="text_" 
+        v-model="file.caption" 
+        placeholder="Caption goes here"/> 
+      </div>
+    </el-row>
+    <el-row>
+     <div class="center" >
+        <button id="btn" style="border:1px solid black;font-size:18px"  @click="create">Upload</button>
+     </div>
+    </el-row>
+   <el-row class="all">
+     <div class="image_" v-for="img in file" :key="img">
+        <div class="image_01">
+            <img id="img1" :src="img.img1" alt="" >
+         </div>
+           <div class="cap">
+               <p>{{img.caption}}</p>
+           </div>
     </div>
-    </div>
-   <div class="containerd">
-    <div class="container-text" style="margin-top:60px">
-      <img src="" style="width:40%; margin:0px 0px 10px">
-        <h1 class="header">How Johnstone Brokerage Services navigates risk and saves time with Impira</h1>
-        <p class="p-text">Johnstone Brokerage Services (JBS) provides confidence and guidance for their clients. This means knowing their clients’ needs well and being an advocate for their success by providing crucial insights at the right times. The value of having a rock solid handle on existing financial data and emerging trends cannot be understated. Partnering with Impira has helped JBS determine actionable insights and make meaningful decisions for their clients.</p>    
-        <div class="email-form"> 
-              <a class="forms">Read more</a>
-            </div>
-    </div>
-    </div>
-    <div class="section">
-        <div class="section-text">
-           <h2 class="white">Try Impira’s data extraction capabilities today.</h2>
-           <div class="email-form" style="margin-left:110px"> 
-              <a class="form">Try for free</a>
-            </div>
-        </div>
-    </div>
+    </el-row>
   </div>
 </template>
 
-<script>
-export default {
-  name: "Contact",
-};
-</script>
 
+<script>
+import firebase from 'firebase';
+import 'firebase/storage';
+    export default {
+      data () {
+        return {
+          file:{
+            caption : '',
+            img1: null,
+          },
+          imageData: null,
+        }
+      },
+      async created(){
+        try{const response = await this.$http.get('https://vuejs-firebase-1d336-default-rtdb.asia-southeast1.firebasedatabase.app/data.json')
+        this.file = response.data;
+        }
+      catch(e){
+        console.log(e);
+      }
+ },
+      methods: {
+        create () {
+          this.$http.post('https://vuejs-firebase-1d336-default-rtdb.asia-southeast1.firebasedatabase.app/data.json', this.file)
+          .then(response=> {
+            location.reload();
+            console.log(response)
+          },error =>{
+            console.log(error)
+          })
+        },
+      click1() {
+      this.$refs.input1.click()   
+    },
+    previewImage(event) {
+      this.uploadValue=0;
+      this.file.img1=null;
+      this.imageData = event.target.files[0];
+      this.onUpload()
+    },
+    onUpload(){
+      this.file.img1=null;
+      const storageRef=firebase.storage().ref(`${this.imageData.name}`).put(this.imageData);
+      storageRef.on(`state_changed`,snapshot=>{
+      this.uploadValue = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
+        }, error=>{console.log(error.message)},
+      ()=>{this.uploadValue=100;
+          storageRef.snapshot.ref.getDownloadURL().then((url)=>{
+              this.file.img1 =url;
+              console.log(this.file.img1)
+            });
+          }      
+        );
+    },
+      }
+}
+</script>
+  
 <style lang="scss">
-.containerd{
-    z-index: 3;
-    display: flex;
-    width: 100%;
-    max-width: none;
-    background-color: transparent;
+.center{
+  text-align: center;
+  margin: 10px;
 }
-.container-leftd{
-  width: 50%;
-  display: block;
-    overflow: visible;
-    height: auto;
-    max-width: 960px;
-    min-height: 0;
-    min-width: 0;
-    margin-left: 0;
-    padding-top: 24px;
+.ig{
+  margin: 0px 420px;
 }
-.container-text{
-  width: 70%;
-  display: block;
-    overflow: visible;
-    height: auto;
-    max-width: 960px;
-    min-height: 0;
-    min-width: 0;
-    margin-left: 0;
-    padding-top: 24px;
+.text_{
+  border: 1px solid black;
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 300px;
+  padding: 10px ;
 }
-.container-img{
-  width: 30%;
-  display: block;
-    overflow: visible;
-    height: auto;
-    max-width: 960px;
-    min-height: 0;
-    min-width: 0;
-    margin-left: 0;
-    padding-top: 24px;
-    padding-left: 36px;
-    padding-right: 36px;
-}
-.header{
-    margin-top: 0;
-    margin-bottom: 24px;
-    font-size: 50px;
-    line-height: 1;
-    text-align: left;
-    font-weight: 1;
-}
-.hero__header{
-  margin-top: 0;
-    margin-bottom: 24px;
-    font-size: 70px;
-    line-height: 1;
-    text-align: left;
-    font-weight: 1;
-}
-.p-text{ 
-  margin-bottom: 16px;
-    font-size: 18px;
-    line-height: 1.65;
-    font-weight: 400;
-}
-.imgs{
-    width: 100%;
-    margin-right: 0;
-    margin-left: 0;
-    padding: 32px 0 32px 32px;
-    align-self: center;
-}
-.email-form{
-    width: 200px;
-    height: 50px;
-    margin-top: 20px;
-    margin-bottom: 8px;
-}
-.form{
-   display: inline-block;
-    min-height: 30px;
-    padding: 10px 24px 8px;
-    background-color: white;
-     border:2px solid black;
-    color: black;
-    line-height: 2;
-    font-weight: 500;
-    letter-spacing: .25px;
-    cursor: pointer;
-    transition:all 0.5s ease-in-out ;
-}
-.form:hover{
+#btn:hover{
   background: black;
   color: white;
-  text-decoration: none;
+  cursor: pointer;
 }
-.forms{
-   display: inline-block;
-    min-height: 30px;
-    padding: 10px 24px 8px;
-    background-color: #0f0f0f;
-    color: #fff;
-    line-height: 2;
-    font-weight: 500;
-    letter-spacing: .25px;
-    cursor: pointer;
-     transition:all 0.5s ease-in-out ;
+.imagecontainer{
+  width: 100%;
+  height: 600px;
+  background: blanchedalmond;
 }
-.forms:hover{
-  background: white;
-  color: black;
-  border:2px solid black;
-    text-decoration: none;
+.all{
+  width: 72vw;
+  display: flex;
+   flex-wrap: wrap;
+   width: 100%;
+   justify-content: space-around;
+    box-sizing: border-box;
 }
-.section{
-  width: 113%;
-  height: 250px;
-  margin: 10px 5%;
-  background-color: #2281f6;
-  background-image:url(https://assets-global.website-files.com/5e3898dff507782a6580d710/5f99f2d6b35ee3a6ee6b5cd7_brand%20hero.svg);
+.image_ {
+  display: block;
+  margin-bottom: 20px;
+  transition: ease-in-out 0.5s;
+  border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: transform .2s;
 }
-.section-text{
-    display: block;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    padding-top: 30px;
+.image_:hover{
+  transform: scale(0.97);
 }
-.white{
-  color: white;
-  font-size: 40px;
+#img1{
+  width: 114%;
+  height: 100%;
+}
+.image_01{
+  margin: 10px 35px 10px 0px;
+  height: 240px;
+  width: 240px;
+}
+.cap{
+  text-align: center;
 }
 </style>
+

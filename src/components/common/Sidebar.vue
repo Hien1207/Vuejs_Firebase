@@ -51,8 +51,8 @@ export default {
         },
         {
           id: 5,
-          name: "About",
-          goTo: "about",
+          name: "Media",
+          goTo: "media",
         },
         {
           id: 6,

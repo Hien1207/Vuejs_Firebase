@@ -28,22 +28,22 @@
               :to="item.slug"
               >{{ item.name }}</router-link
             >
-            <div class="nav__login">Login / Sign Up</div>
+            <div class="nav__login" @click="$router.push('/auth/login')">Login / Sign Up</div>
           </div>
         </div>
       </el-col>
     </el-row>
-    <login/>
+    <!-- <login/> -->
   </div>
 </template>
 
-<script>
-import Login from '../uncommon/Login.vue';
+ <script>
+// import Login from '../uncommon/Login.vue';
 
 export default {
-  components: {
-    Login
-  },
+  // components: {
+  //   Login
+  // },
   data() {
     return {
       showMobileMenu: false,

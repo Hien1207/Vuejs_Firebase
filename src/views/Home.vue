@@ -78,7 +78,7 @@ export default {
    },
  methods:{
    gotoUserDetailPage(id){
-     this.$router.push(`/user/${id}`)
+     this.$router.push(`/blogs/${id}`)
    }  
  },
 }
@@ -230,7 +230,7 @@ export default {
   }
   .imga{
   width:100%;
-  height:260px;
+  height:310px;
   }
   .VueStar__ground{
     margin-left: 12.5rem;
