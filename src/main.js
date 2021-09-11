@@ -7,9 +7,11 @@ import Vuex from 'vuex';
 import './assets/css/main.css';
 import VueCarousel from 'vue-carousel';
 import VueStar from 'vue-star'
+import VueResource from 'vue-resource'
 
 Vue.component('VueStar', VueStar)
 Vue.use(VueCarousel);
+Vue.use(VueResource);
 Vue.config.productionTip = false;
 
 Vue.use(Vuex);
