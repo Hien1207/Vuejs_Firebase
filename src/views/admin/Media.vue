@@ -1,7 +1,7 @@
 <template>
   <div class="media">
       <div >
-        <h1>Upload a photo</h1>
+        <h1>Media Library</h1>
       </div>
        <div>
            <button id="btn" @click="click1">Choose photo</button>
