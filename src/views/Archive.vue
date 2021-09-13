@@ -61,12 +61,8 @@ export default {
 
 <style lang="scss" scoped>
 .archive {
-    display: block;
   &__container {
-    width: 90%;
-    margin:5% 5% 0%;
-    padding: 0px;
-    font-family:var(--font-light);
+    padding: 60px;
     border: 1px solid rgba(204, 204, 204, 0.75);
   }
   &__banner {
@@ -84,26 +80,6 @@ export default {
     font-size: 14px;
     margin: 0;
     padding-left: 10px;
-  }
-}
-
-@media (min-width: 700px) {
-  .archive {
-    display: block;
-     &__container{
-    width: 70%;
-    padding: 60px;
-    margin:5% 15% 0%;
-    }
-  }
-}
-@media (min-width: 1000px) {
- .archive {
-    display: block;
-     &__container{
-    width: 50%;
-    margin:0% 25% 5%;
-    }
   }
 }
 </style>

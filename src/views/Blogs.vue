@@ -1,5 +1,5 @@
 <template>
-  <el-row class="blogs">
+  <el-row class="blogs container">
       <category/>
       <blogs-list/>
   </el-row>
@@ -18,7 +18,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.blogs{
-  display: block;
-}
 </style>

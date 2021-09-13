@@ -46,10 +46,6 @@ export default {
       opacity: 0.8;
     }
 }
-.category__container{
-    width: 50%;
-    margin:0% 23%;
-}
 .active {
   color: var(--blue-hover);
 }

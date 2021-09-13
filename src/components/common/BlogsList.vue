@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-v">
+  <div class="blogs-container">
     <el-row
       class="blog-post"
       v-for="blog in blogs"
@@ -82,11 +82,5 @@ export default {
   &__date {
     padding-left: 10px;
   }
-}
-@media (min-width: 600px) {
-   .blog-post {
-  display: flex;
-  }
-
 }
 </style>

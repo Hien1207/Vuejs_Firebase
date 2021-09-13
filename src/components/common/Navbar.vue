@@ -28,23 +28,26 @@
               :to="item.slug"
               >{{ item.name }}</router-link
             >
-            <div class="nav__login"  @click="$router.push('/auth/login')">Login / Sign Up</div>
+            <div class="nav__login" @click="$router.push('/auth/login')">Login / Sign Up</div>
           </div>
         </div>
       </el-col>
     </el-row>
+    <!-- <login/> -->
   </div>
 </template>
 
-<script>
-import VBurger from "vue-burger";
+ <script>
+// import Login from '../uncommon/Login.vue';
+
 export default {
-  component: {
-    VBurger,
-  },
+  // components: {
+  //   Login
+  // },
   data() {
     return {
       showMobileMenu: false,
+      showLogin: false,
       navItems: [
         {
           name: "Home",
@@ -74,6 +77,9 @@ export default {
     toggleMobileMenu() {
       this.showMobileMenu = !this.showMobileMenu;
     },
+    loginToggle() {
+      this.showLogin = !this.showLogin;
+    }
   },
 };
 </script>
@@ -180,9 +186,8 @@ export default {
 .active {
   color: var(--blue-hover);
 }
-@media (min-width: 700px) {
+@media (min-width: 768px) {
   .nav {
-    margin: 0% 10%;
     &__mobile-menu,
     &__mobile-close {
       display: none;
@@ -205,9 +210,6 @@ export default {
     color: var(--yellow-active);
   }
 }
-@media (min-width: 1200px) {
-  .nav{
-    margin: 0% 23%;
-  }
+@media (min-width: 992px) {
 }
 </style>

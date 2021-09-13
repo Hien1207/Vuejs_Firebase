@@ -32,7 +32,7 @@ export default {
 .secretnav {
   display: flex;
   justify-content: space-between;
-  background-color: #1a3753;
+  background-color: #1c1c1c;
   padding: 10px 25px;
   .logout,
   .menu {

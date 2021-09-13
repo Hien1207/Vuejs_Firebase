@@ -1,14 +1,14 @@
 @font-face {
-    font-family: futura-light;
-    src: url("/fonts/SFUFuturaLight.TTF") format('truetype');
+  font-family: futura-light;
+  src: url("/fonts/SFUFuturaLight.TTF") format("truetype");
 }
 @font-face {
-    font-family: futura-regular;
-    src: url("/fonts/SFUFuturaRegular.TTF") format('truetype');
+  font-family: futura-regular;
+  src: url("/fonts/SFUFuturaRegular.TTF") format("truetype");
 }
 @font-face {
-    font-family: futura-bold;
-    src: url("/fonts/SFUFuturaBold.TTF") format('truetype');
+  font-family: futura-bold;
+  src: url("/fonts/SFUFuturaBold.TTF") format("truetype");
 }
 :root {
     --yellow-active: #7D5243;
@@ -17,6 +17,7 @@
     --blue-hover: #4662C2;
     --gray-boder:rgba(204, 204, 204, 0.75);
     --title-size: 20px;
+    --title-size: 28px;
     --content-text: 18px;
     --normal-text: 16px;
     --small-text: 12px;
@@ -28,22 +29,53 @@
     --color_15: 0,0,0;
 }
 html {
-    font-family: futura-light;
-    font-size: 16px;
+  font-family: futura-regular;
+  font-size: 16px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  color: var(--black-text);
 }
 a:hover {
-    color: var(--blue-hover);
+  color: var(--blue-hover);
 }
-.blog-title, .blog-sub-title {
-    color: var(--black-text);
-    font-size: var(--title-size);
-    font-family: futura-bold;
+
+.container {
+  width: 100%;
+  margin: auto;
+  flex-direction: column;
 }
-.blog-descript {
-    color: var(--black-text);
-    font-size: var(--normal-text);
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
 }
-.blog-content {
-    color: var(--black-text);
-    font-size: var(--content-text);
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+input,
+button {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
