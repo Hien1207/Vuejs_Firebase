@@ -26,7 +26,7 @@ Vue.use(ElementUI);
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyDwlilc25tJEN9RnQG_RerZfUSQdVC9cR8",
-  authDomain: "vuejs-firebase-1d336.firebaseapp.com",
+  authDomain: "web2000.netlify.app",
   projectId: "vuejs-firebase-1d336",
   storageBucket: "vuejs-firebase-1d336.appspot.com",
   messagingSenderId: "1049087402909",
@@ -40,4 +40,18 @@ new Vue({
   router,
   render: (h) => h(App),
   store,
+  created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        this.$store.dispatch('fetchUserData', user)
+        // ...
+      } else {
+        // User is signed out
+        // ...
+        // console.log(this.$store.state.user)
+      }
+    });
+  }
 }).$mount("#app");

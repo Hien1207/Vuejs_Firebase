@@ -43,7 +43,7 @@
           v-model="firstname"
           class="form-control-b" style="width:90%"
           required
-        />
+        >
         </div>
       </div>
        <div class="inp">
@@ -53,7 +53,7 @@
           v-model="lastname"
           class="form-control-b" style="width:90%"
           required
-        />
+        >
         </div>
       </div>
      </div>
@@ -65,7 +65,7 @@
           type="email"
           class="form-control-b" style="width:100%"
           required
-        />
+        >
         </div>
       </div>
       <div class="inp-w">
@@ -75,7 +75,7 @@
           v-model="message"
           class="form-control-b" style="width:100%;height:80px"
           required
-        />
+        >
         </div>
       </div>
       <div class="submit">
