@@ -24,20 +24,20 @@
         />
       </div>
       <button type="submit" class="auth-form__submit">Login</button>
-      <div class="layout-box">
-        <h4>Forgot Password?</h4>
+      <div class="auth-form__password">
+        <p>Forgot Password?</p>
       </div>
     </form>
-    <p class="text">— Or Sign In With —</p>
-    <div class="in">
-      <button>Google</button>
-    </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["methods","password","email"],
+  props: {
+    methods: Function,
+    password: String,
+    email: String
+    },
 };
 </script>
 
@@ -73,6 +73,9 @@ export default {
     color: #ffffff;
     padding: 10px 0;
     font-size: var(--nomal-text);
+  }
+  &__password {
+    text-align: center;
   }
 }
 </style>

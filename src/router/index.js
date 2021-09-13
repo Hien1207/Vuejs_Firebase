@@ -3,10 +3,10 @@ import VueRouter from 'vue-router'
 
 import Home from '../views/Home.vue';
 import Blogs from '../views/Blogs.vue';
+import About from '../views/About.vue';
 import Archive from '../views/Archive.vue';
-import About from "../views/About.vue";
 
-import Login from "../components/uncommon/Login.vue";
+import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import HomeAd from "../views/admin/Home.vue";
 import Profile from "../views/admin/Profile.vue";

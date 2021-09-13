@@ -108,7 +108,6 @@ export default {
   background: black;
   color: white;
 }
-
 .border_cap{
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   width: 300px;

@@ -16,7 +16,7 @@
     --black-text: #000000;
     --blue-hover: #4662C2;
     --gray-boder:rgba(204, 204, 204, 0.75);
-    --title-size: 20px;
+    /* --title-size: 20px; */
     --title-size: 28px;
     --content-text: 18px;
     --normal-text: 16px;
@@ -50,6 +50,9 @@ a:hover {
   width: 100%;
   margin: auto;
   flex-direction: column;
+}
+.text-muted {
+  color: var(--gray-text);
 }
 
 @media (min-width: 576px) {
