@@ -129,6 +129,13 @@ export default {
     },
     updateUser() {
       this.$store.dispatch('updateUser', this.user)
+       .then(function (response) {
+         alert("Update success");
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
   },
 };
@@ -209,5 +216,8 @@ export default {
   background-color: var(--blue-hover);
   color: white;
   margin-right: 8px;
+}
+.primary:hover{
+    color: black;
 }
 </style>

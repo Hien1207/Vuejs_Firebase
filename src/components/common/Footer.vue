@@ -4,7 +4,7 @@
           <p class="font-4" style="text-align:center;font-size:18px">
             <span style="letter-spacing:0.45em">
               <span class="color_11">
-                  <a class="aho" style="font-family:var(--font-regular)">DESIGN <span style="font-family: var(--font-light)">FOR</span> LIFE</a>
+                  <a class="aho" style="font-family:var(--font-regular)">DESIGN <span style="font-family: var(--font-light);color:white">FOR</span> LIFE</a>
               </span>
             </span>
           </p>
@@ -51,7 +51,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
 .footer{
   position: static;
     display: grid;

@@ -21,14 +21,14 @@
             </p>
           </div>
         </div>
-        <div class="auth__body">
-          <authform
+        <div class="auth__body" style="text-align:center">
+          <authform style="text-align:left"
             :methods="methods ? signIn : signUp"
             v-bind:email.sync="email"
             v-bind:password.sync="password"
           />
-          <p>{{ errorMessage }}</p>
-          <button @click="signOut">SignOut</button>
+          <p >{{ errorMessage }}</p>
+           <button  @click="signOut">SignOut</button>
         </div>
       </div>
     </div>

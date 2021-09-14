@@ -6,12 +6,13 @@ import Blogs from '../views/Blogs.vue';
 import About from '../views/About.vue';
 import Archive from '../views/Archive.vue';
 
+import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import HomeAd from "../views/admin/Home.vue";
 import Profile from "../views/admin/Profile.vue";
 import Posting from "../views/admin/Posting.vue";
 import Archives from "../views/admin/Archives.vue";
-import AboutAd from "../views/admin/About.vue";
+import Media from "../views/admin/Media.vue";
 import Contact from "../views/admin/Contact.vue";
 
 Vue.use(VueRouter)
@@ -35,6 +36,14 @@ const routes = [
   {
     path: '/blogs/:id',
     component: Archive
+  },
+  {
+    path: "/auth/login",
+    name: "Login",
+    component: Login,
+    meta: {
+      layout: 'unauth'
+    }
   },
   {
     path: "/auth/register",
@@ -77,9 +86,9 @@ const routes = [
     }
   },
   {
-    path: "/admin/about",
-    name: "About",
-    component: AboutAd,
+    path: "/admin/media",
+    name: "Media",
+    component: Media,
     meta: {
       layout: 'secret'
     }

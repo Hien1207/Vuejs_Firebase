@@ -36,7 +36,6 @@ import Category from "../components/common/Category.vue";
 import ArchiveStat from "../components/uncommon/ArchiveStat.vue";
 import ShareBtn from "../components/uncommon/ShareBtn.vue";
 import ArchiveInfo from "../components/uncommon/ArchiveInfo.vue";
-
 export default {
   components: {
     Category,
