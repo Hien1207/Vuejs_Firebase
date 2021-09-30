@@ -12,7 +12,7 @@
     "@splidejs/vue-splide": "^0.3.5",
     "core-js": "^3.6.5",
     "element-ui": "^2.15.3",
-    "firebase": "^8.8.1",
+    "firebase": "^8.10.0",
     "vue": "^2.6.11",
     "vue-burger": "^1.1.0",
     "vue-carousel": "^0.18.0",
