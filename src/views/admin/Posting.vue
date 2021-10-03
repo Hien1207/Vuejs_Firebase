@@ -4,7 +4,7 @@
       <el-row>
         <el-col>
           <input
-            v-model="title"
+            v-model="blog.title"
             class="posting__title"
             type="text"
             placeholder="Edit your title here..."
@@ -14,10 +14,18 @@
           <span class="posting__slug__domain">
             {{ domain }}
           </span>
-          <input v-model="slug" type="text" class="posting__slug__content" />
+          <input
+            v-model="blog.slug"
+            type="text"
+            class="posting__slug__content"
+          />
         </el-col>
         <el-col>
-          <editor />
+          <ckeditor
+            :editor="editor"
+            v-model="editorData"
+            :config="editorConfig"
+          ></ckeditor>
         </el-col>
       </el-row>
     </el-col>
@@ -26,21 +34,26 @@
       <!-- Publish Box -->
       <posting-sidebar
         :submitPost="submit"
-        :deletePost="remove"
-        :savePost="save"
-        :previewPost="preview"
+        @categorySetter="setCategory"
+        @setImgUrl="setCoverImg"
+        :featuredImg="this.blog.coverImg"
       />
     </el-col>
   </el-row>
 </template>
 
-<script>
-import Editor from "../../components/common/Editor.vue";
+<script scoped>
 import PostingSidebar from "../../components/uncommon/PostingSidebar.vue";
+import CKEditor from "@ckeditor/ckeditor5-vue2";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+
+import firebase from "firebase";
+import "firebase/firestore";
+
 export default {
   components: {
-    Editor,
     PostingSidebar,
+    ckeditor: CKEditor.component,
   },
   data() {
     return {
@@ -48,22 +61,45 @@ export default {
         title: "",
         slug: "",
         category: "",
-        content: "",
-        author: "",
+        author: this.$store.state.user.email,
         coverImg: "",
+      },
+      editor: ClassicEditor,
+      editorData: "",
+      editorConfig: {
+        
       },
     };
   },
   methods: {
-    save() {},
-    preview() {},
-    submit() {},
-    remove() {}
+    submit() {
+       firebase
+      .firestore()
+      .collection("blogs").doc(this.blog.slug).set({
+        title: this.blog.title,
+        slug: this.blog.slug,
+        category: this.blog.category,
+        author: this.blog.author,
+        coverImg: this.blog.coverImg,
+        content: this.editorData
+      }).then(() => {
+    location.reload();
+})
+.catch((error) => {
+    console.error("Error writing document: ", error);
+});
+    },
+    setCategory(value) {
+      this.blog.category = value
+    },
+    setCoverImg(url) {
+      this.blog.coverImg = url
+    }
   },
   computed: {
     domain() {
       return `${window.location.origin}/category/`;
-    },
+    }
   },
 };
 </script>

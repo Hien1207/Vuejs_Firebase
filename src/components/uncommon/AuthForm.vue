@@ -75,6 +75,7 @@ export default {
     font-size: var(--nomal-text);
   }
   &__password {
+    text-align: center;
   }
 }
 </style>

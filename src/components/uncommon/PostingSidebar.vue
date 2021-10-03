@@ -3,22 +3,22 @@
   <div class="sidebar">
     <!-- Publish -->
     <el-row class="sidebar__item">
-      <el-row class="sidebar__item__header">
+      <el-col class="sidebar__item__header">
         <span class="header-text"> Publish </span>
-      </el-row>
-      <el-row class="sidebar__item__body">
+      </el-col>
+      <el-col class="sidebar__item__body">
         <el-row type="flex" justify="space-between" align="middle">
-          <span @click="savePost" class="btn btn-normal">Save Draft</span>
-          <span @click="previewPost" class="btn btn-normal">Preview</span>
+          <span class="btn btn-normal">Save Draft</span>
+          <span class="btn btn-normal">Preview</span>
         </el-row>
-      </el-row>
+      </el-col>
       <el-row
         type="flex"
         justify="space-between"
         align="middle"
         class="sidebar__item__footer"
       >
-        <span @click="deletePost" class="btn btn-delete">Move to Trash</span>
+        <span class="btn btn-delete">Move to Trash</span>
         <span @click="submitPost" class="btn btn-submit">Post</span>
       </el-row>
     </el-row>
@@ -33,10 +33,10 @@
           :key="category.slug"
           class="category__input"
         >
-          <input type="checkbox" :value="category.title" name="" id="" />
-          <span>
+          <input type="radio" @focus="$emit('categorySetter', category.title)" v-model="categoryValue" :value="category.title"/>
+          <label>
             {{ category.title }}
-          </span>
+          </label>
         </div>
       </el-row>
     </el-row>
@@ -46,17 +46,23 @@
         <span class="header-text"> Featured Image </span>
       </el-row>
       <el-row class="sidebar__item__body">
-        <img v-if="featuredImg" :src="featuredImg" alt="" />
+        <img class="cover-img-preview" v-if="featuredImg" :src="featuredImg" alt="" />
         <!-- Add featured image component -->
-        <span class="btn btn-add" v-else>Add a image...</span>
+        <span @click="show = true" class="btn btn-add" v-else>Add a image...</span>
       </el-row>
     </el-row>
+    <!-- Media -->
+    <div v-if="show" class="popup">
+      <media @fetchImgSrc="setCoverImg" class="media-content" />
+    </div>
   </div>
 </template>
 
-<script>
+<script scoped>
 import firebase from "firebase";
 import "firebase/firestore";
+import media from "../../views/admin/Media.vue";
+
 export default {
   created() {
     firebase
@@ -73,17 +79,23 @@ export default {
         console.log("Error getting documents: ", error);
       });
   },
+  components: {
+    media,
+  },
   data() {
     return {
       categories: [],
+      show: false,
+      categoryValue: ""
     };
   },
-  props: ["featuredImg", "submitPost", "deletePost", "savePost", "previewPost"],
-  computed: {
-    postCategory() {
-      return true;
-    },
-  },
+  props: ["featuredImg","submitPost"],
+  methods: {
+    setCoverImg(url) {
+      this.$emit('setImgUrl', url);
+      this.show = false;
+    }
+  }
 };
 </script>
 
@@ -106,6 +118,22 @@ export default {
       padding: 10px 20px;
     }
   }
+}
+.cover-img-preview {
+  width: 100%;
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 20%;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+}
+.media-content {
+  margin: 50px;
+  padding: 50px;
+  background-color: #ffffff;
 }
 .header-text {
   font-weight: 700;

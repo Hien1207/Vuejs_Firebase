@@ -1,7 +1,16 @@
 <template>
   <div class="container">
     <div class="layout-box-sizing">
-      <h3 class="heading-size">Have an account?</h3>
+      <p style="color: white">
+        Bạn chưa có tài khoản?
+        <a
+          class="register"
+          style="text-decoration: underline"
+          @click="$router.push('/auth/register').catch(() => {})"
+          >Đăng ký</a
+        >
+      </p>
+      <h3 class="heading-size">Đăng nhập</h3>
     </div>
     <div class="error" v-if="error">
       <p>{{ errorMessage }}</p>
@@ -10,7 +19,7 @@
       <div class="form-group" style="margin-bottom: 30px">
         <input
           v-model="email"
-          placeholder="Enter your email"
+          placeholder="Email"
           type="email"
           class="form-control"
           required
@@ -19,15 +28,13 @@
       <div class="form-group" style="margin-bottom: 16px">
         <input
           v-model="password"
-          placeholder="Enter your password"
+          placeholder="Mật khẩu"
           type="password"
           class="form-control"
           required
         />
       </div>
-      <button type="submit" class="signin">
-        SIGN IN
-      </button>
+      <button type="submit" class="signin">Đăng nhập</button>
       <div class="layout-box" style="margin-bottom: 10px; display: flex">
         <input type="checkbox" name="" class="box" />
         <h4 style="margin: 3px 0px; font-weight: 100; opacity: 0.7">
@@ -52,7 +59,7 @@ import "firebase/auth";
 export default {
   created() {
     const user = firebase.auth().currentUser;
-      if (user) this.$router.replace("/admin/dashboard");
+    if (user) this.$router.replace("/admin/home");
   },
   methods: {
     signIn() {
@@ -61,20 +68,20 @@ export default {
         .signInWithEmailAndPassword(this.email, this.password)
         .then((userCredential) => {
           console.log(userCredential);
-          this.$router.replace("/");
+          this.$router.replace("/admin/home");
           this.email = "";
           this.password = "";
         })
         .catch((error) => {
           switch (error.code) {
             case "auth/wrong-password":
-              this.errorMessage = "Mật khẩu hoặc email không đúng."
+              this.errorMessage = "Mật khẩu hoặc email không đúng.";
               break;
             case "auth/user-not-found":
-              this.errorMessage = "Người dùng không tồn tại."
+              this.errorMessage = "Người dùng không tồn tại.";
               break;
             default:
-              this.errorMessage = error.code
+              this.errorMessage = error.code;
           }
           this.error = true;
           this.email = "";
@@ -98,7 +105,7 @@ export default {
   position: relative;
   height: 300px;
   width: 300px;
-  top: 40%;
+  top: 30%;
   left: 45%;
   transform: translate(-50%, -50%);
   display: block;
@@ -109,9 +116,7 @@ export default {
   width: 88%;
   height: 50px;
   color: #fff !important;
-  border: 1px solid transparent;
   background: rgba(255, 255, 255, 0.08);
-  border-radius: 40px;
   padding-left: 20px;
   padding-right: 20px;
   font-size: 1rem;
@@ -121,7 +126,6 @@ export default {
   color: rgb(5, 5, 5) !important;
   border: 1px solid transparent;
   background: rgba(255, 255, 255, 0.08);
-  border-radius: 40px;
   padding-left: 20px;
   padding-right: 20px;
   font-size: 1rem;
@@ -132,9 +136,14 @@ export default {
   cursor: pointer;
   background: #e9bea6 !important;
 }
+.register:hover {
+  color: rgb(211, 188, 145);
+  cursor: pointer;
+}
 .layout-box-sizing {
   box-sizing: border-box;
   margin-bottom: 40px;
+  text-align: center;
 }
 .layout-box {
   box-sizing: border-box;
@@ -170,7 +179,7 @@ export default {
   margin-top: 0;
   margin-bottom: 0;
   font-family: "Courier New", Courier, monospace;
-  font-weight: 300;
+  font-weight: 600;
   font-size: 30px;
   color: white;
   text-align: center;
@@ -180,7 +189,7 @@ export default {
   width: 18px;
   height: 18px;
   border: 2px solid black;
-  border-radius: 8px;
+  border-radius: 40px;
   background: white;
   cursor: pointer;
 }

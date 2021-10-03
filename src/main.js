@@ -1,20 +1,21 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import store from "./store/store";
+import store from "./store/stores";
 
 import ElementUI from 'element-ui';
 import firebase from "firebase/app";
+import 'firebase/storage';
 import './assets/css/main.css';
 import VueCarousel from 'vue-carousel';
 import VueStar from 'vue-star'
+import VueResource from "vue-resource"
+
 
 Vue.component('VueStar', VueStar)
 Vue.use(VueCarousel);
-
-
+Vue.use(VueResource);
 Vue.config.productionTip = false;
-
 
 Vue.use(ElementUI);
 
@@ -32,6 +33,10 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
+const settings = {timestampsInSnapshots: true};
+firebase.firestore().settings(settings);
+const db = firebase.firestore();
+export{db}
 new Vue({
   router,
   render: (h) => h(App),

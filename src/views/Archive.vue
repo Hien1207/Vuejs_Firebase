@@ -15,7 +15,7 @@
           {{ archive.subtitle }}
         </p>
         <div class="archive__banner">
-          <img :src="archive.banner" alt="" />
+          <img :src="archive.coverImg" alt="" />
         </div>
       </el-row>
       <el-row class="archive__content">
@@ -36,7 +36,7 @@ import Category from "../components/common/Category.vue";
 import ArchiveStat from "../components/uncommon/ArchiveStat.vue";
 import ShareBtn from "../components/uncommon/ShareBtn.vue";
 import ArchiveInfo from "../components/uncommon/ArchiveInfo.vue";
-
+import {db }from '../main.js'
 export default {
   components: {
     Category,
@@ -46,17 +46,19 @@ export default {
   },
   data() {
     return {
+      archive:{},
       slug: this.$route.params.id,
       style: "display: flex;",
     };
   },
-  computed: {
-    archive() {
-      return this.$store.state.archives.find(
-        (archive) => archive.id === this.slug
-      );
-    },
-  },
+  created() {
+            let dbRef = db.collection('blogs').doc(this.$route.params.id);
+            dbRef.get().then((doc) => {
+                this.archive = doc.data();
+            }).catch((error) => {
+                console.log(error)
+            })
+        },
 };
 </script>
 
