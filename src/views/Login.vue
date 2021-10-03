@@ -1,8 +1,14 @@
 <template>
   <div class="container">
     <div class="layout-box-sizing">
-      <p style="color:white">Bạn chưa có tài khoản?
-        <a class="register" style=" text-decoration: underline;" @click="$router.push('/auth/register').catch(()=>{})">Đăng ký</a>
+      <p style="color: white">
+        Bạn chưa có tài khoản?
+        <a
+          class="register"
+          style="text-decoration: underline"
+          @click="$router.push('/auth/register').catch(() => {})"
+          >Đăng ký</a
+        >
       </p>
       <h3 class="heading-size">Đăng nhập</h3>
     </div>
@@ -28,9 +34,7 @@
           required
         />
       </div>
-      <button type="submit" class="signin">
-        Đăng nhập
-      </button>
+      <button type="submit" class="signin">Đăng nhập</button>
       <div class="layout-box" style="margin-bottom: 10px; display: flex">
         <input type="checkbox" name="" class="box" />
         <h4 style="margin: 3px 0px; font-weight: 100; opacity: 0.7">
@@ -55,7 +59,7 @@ import "firebase/auth";
 export default {
   created() {
     const user = firebase.auth().currentUser;
-      if (user) this.$router.replace("/admin/home");
+    if (user) this.$router.replace("/admin/home");
   },
   methods: {
     signIn() {
@@ -71,13 +75,13 @@ export default {
         .catch((error) => {
           switch (error.code) {
             case "auth/wrong-password":
-              this.errorMessage = "Mật khẩu hoặc email không đúng."
+              this.errorMessage = "Mật khẩu hoặc email không đúng.";
               break;
             case "auth/user-not-found":
-              this.errorMessage = "Người dùng không tồn tại."
+              this.errorMessage = "Người dùng không tồn tại.";
               break;
             default:
-              this.errorMessage = error.code
+              this.errorMessage = error.code;
           }
           this.error = true;
           this.email = "";
@@ -132,9 +136,9 @@ export default {
   cursor: pointer;
   background: #e9bea6 !important;
 }
-.register:hover{
-   color: rgb(211, 188, 145);
-   cursor: pointer;
+.register:hover {
+  color: rgb(211, 188, 145);
+  cursor: pointer;
 }
 .layout-box-sizing {
   box-sizing: border-box;
