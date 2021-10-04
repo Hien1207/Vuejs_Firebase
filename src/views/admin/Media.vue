@@ -1,5 +1,6 @@
 <template>
   <div class="media">
+
       <div style="display:flex">
         <h1>Media Library</h1>
         <div class="addnew">
@@ -35,69 +36,89 @@
                <p>{{media.caption}}</p>
            </div> -->
        </div>
+
       </div>
+    </div>
   </div>
 </template>
 
-
 <script>
-import firebase from 'firebase';
+import firebase from "firebase";
 export default {
-  data () {
+  data() {
     return {
       medi:{
       img1: '',
+
       },
       imageData: null,
-      medias:[]
-    }
+      medias: [],
+    };
   },
-  async created(){
-    try{const response = await this.$http.get('https://vuejs-firebase-1d336-default-rtdb.asia-southeast1.firebasedatabase.app/data.json')
-    this.medias = response.data;
-    }
-    catch(e){
+  props: ['getImg'],
+  async created() {
+    try {
+      const response = await this.$http.get(
+        "https://vuejs-firebase-1d336-default-rtdb.asia-southeast1.firebasedatabase.app/data.json"
+      );
+      this.medias = response.data;
+    } catch (e) {
       console.log(e);
     }
- },
+  },
   methods: {
-    create () {
-        this.$http.post('https://vuejs-firebase-1d336-default-rtdb.asia-southeast1.firebasedatabase.app/data.json',this.medi)
+    create() {
+      this.$http
+        .post(
+          "https://vuejs-firebase-1d336-default-rtdb.asia-southeast1.firebasedatabase.app/data.json",
+          this.medi
+        )
         .then((response) => {
-      location.reload();
-        console.log(response)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+          location.reload();
+          console.log(response);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
-  click1() {
-  this.$refs.input1.click()   
-},
+    click1() {
+      this.$refs.input1.click();
+    },
     previewImage(event) {
-      this.uploadValue=0;
-      this.medi.img1=null;
+      this.uploadValue = 0;
+      this.medi.img1 = null;
       this.imageData = event.target.files[0];
-      this.onUpload()
+      this.onUpload();
     },
-    onUpload(){
-      this.medi.img1=null;
-      const storageRef=firebase.storage().ref(`${this.imageData.name}`).put(this.imageData);
-      storageRef.on(`state_changed`,snapshot=>{
-      this.uploadValue = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
-        }, error=>{console.log(error.message)},
-      ()=>{this.uploadValue=100;
-          storageRef.snapshot.ref.getDownloadURL().then((url)=>{
-              this.medi.img1 =url;
-              console.log(this.medi.img1)
-            });
-          }      
-        );
+    onUpload() {
+      this.medi.img1 = null;
+      const storageRef = firebase
+        .storage()
+        .ref(`${this.imageData.name}`)
+        .put(this.imageData);
+      storageRef.on(
+        `state_changed`,
+        (snapshot) => {
+          this.uploadValue =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        },
+        (error) => {
+          console.log(error.message);
+        },
+        () => {
+          this.uploadValue = 100;
+          storageRef.snapshot.ref.getDownloadURL().then((url) => {
+            this.medi.img1 = url;
+            console.log(this.medi.img1);
+          });
+        }
+      );
     },
-      }
-}
+  },
+};
 </script>
 <style lang="scss" scoped>
+
 .media{
   margin-left:3%;
 }
@@ -124,14 +145,17 @@ export default {
 .upload{
   font-size: 16px;
 }
+
 .upload:hover{
   color:rgb(11, 116, 158);
+
 }
-.border_cap{
+.border_cap {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   width: 300px;
   height: 30px;
 }
+
 .show{
    width: 72vw;
   display: flex;
@@ -149,8 +173,9 @@ export default {
   height: 140px;
   width: 140px;
   margin-top: 30px;
+
 }
-.text_medi{
+.text_medi {
   text-align: center;
 }
 @media (min-width: 700px) {
