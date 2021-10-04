@@ -170,7 +170,7 @@ export default {
   cursor: pointer;
 }
 .imga{
-  width:100%;
+  width:150%;
   height:100%;
   cursor: pointer;
 }
