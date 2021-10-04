@@ -78,6 +78,14 @@ const routes = [
     }
   },
   {
+    path: "/admin/posting/:id",
+    name: "Write a Post",
+    component: Posting,
+    meta: {
+      layout: 'secret'
+    }
+  },
+  {
     path: "/admin/archives",
     name: "All Posts",
     component: Archives,

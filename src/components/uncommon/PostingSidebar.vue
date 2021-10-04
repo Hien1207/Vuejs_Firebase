@@ -18,7 +18,7 @@
         align="middle"
         class="sidebar__item__footer"
       >
-        <span class="btn btn-delete">Move to Trash</span>
+        <span @click="deletePost" class="btn btn-delete">Move to Trash</span>
         <span @click="submitPost" class="btn btn-submit">Post</span>
       </el-row>
     </el-row>
@@ -86,14 +86,18 @@ export default {
     return {
       categories: [],
       show: false,
-      categoryValue: ""
     };
   },
-  props: ["featuredImg","submitPost"],
+  props: ["featuredImg","submitPost","existCategory","deletePost"],
   methods: {
     setCoverImg(url) {
       this.$emit('setImgUrl', url);
       this.show = false;
+    }
+  },
+  computed: {
+    categoryValue() {
+      return this.existCategory? this.existCategory:""
     }
   }
 };
