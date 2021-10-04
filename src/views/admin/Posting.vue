@@ -67,7 +67,10 @@ export default {
       editor: ClassicEditor,
       editorData: "",
       editorConfig: {
-        
+        cloudServices: {
+            tokenUrl: 'https://83263.cke-cs.com/token/dev/bb6b4afbecc7128d0733623f58137fdeef7a3abb85d218c44a3917dc3cdc',
+            uploadUrl: 'https://83263.cke-cs.com/easyimage/upload/'
+        }
       },
     };
   },
