@@ -12,7 +12,7 @@
       />
     </div>
     <div class="blog-v">
-      <div class="user" v-for="blog in blogs.slice(0, 4)" :key="blog">
+      <div class="user" v-for="blog in blogs.slice(0, 4)" :key="blog.id">
         <div class="image">
           <img
             @click="gotoUserDetailPage(blog.id)"
@@ -207,9 +207,9 @@ export default {
   cursor: pointer;
 }
 
-.imga{
-  width:150%;
-  height:100%;
+.imga {
+  width: 150%;
+  height: 100%;
 
   cursor: pointer;
 }

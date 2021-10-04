@@ -1,7 +1,7 @@
 <template>
   <div class="secretnav">
-    <div class="logo">
-      <img src="http://boooya.aqvatarius.com/img/logo.png" @click="$router.push('/')" alt="logo" />
+    <div @click="$route.replace('/')" class="logo">
+      <img src="http://boooya.aqvatarius.com/img/logo.png" alt="logo" />
     </div>
     <div class="menu" @click="$emit('toggleMenu')">menu</div>
     <div class="logout" @click="signOut">Log out</div>
