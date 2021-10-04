@@ -104,7 +104,7 @@ export default {
 .container-left-a{
   width: 40%;
   font-family:var(--font-light);
-   margin:5% 35%;
+   margin:5% 10%;
 }
 .container-right-a{
   width:90%;

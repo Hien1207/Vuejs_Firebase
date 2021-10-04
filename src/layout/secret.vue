@@ -8,7 +8,6 @@
       <transition name="slide-fade" mode="out-in">
         <router-view />
       </transition>
-      <Footer />
     </div>
   </div>
 </template>
@@ -16,7 +15,6 @@
 <script>
 import Navbars from '../components/common/Navbars.vue'
 import Sidebar from '../components/common/Sidebar.vue'
-import Footer from '../components/common/FooterAd.vue'
 export default {
   data() {
     return {
@@ -25,8 +23,7 @@ export default {
   },
   components: {
      Navbars,
-     Sidebar,
-     Footer
+     Sidebar
   },
   methods: {
     toggleMenu() {

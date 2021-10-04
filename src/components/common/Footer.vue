@@ -89,10 +89,10 @@ export default {
 }
 .comp-form{
   width: 300px;
-  margin-left: 10%;
+  margin-left: 7%;
 }
 .form-f{
-  margin:0px 38px;
+  margin:0px 45px;
   color:white ;
   font-size: var(--small-text);
 }
@@ -127,7 +127,13 @@ export default {
   .aho:hover{
     color: rgb(247, 244, 244);
   }
-@media (min-width: 500px) {
+@media (min-width: 400px) {
+    .comp-form{
+  width: 300px;
+  margin-left: 15%;
+}
+  }
+@media (min-width: 600px) {
   .comp-imdmckp{
   display: flex;
   margin:1% 0% 4%;
