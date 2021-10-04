@@ -1,6 +1,5 @@
 <template>
   <div class="media">
-
       <div style="display:flex">
         <h1>Media Library</h1>
         <div class="addnew">
@@ -39,7 +38,6 @@
 
       </div>
     </div>
-  </div>
 </template>
 
 <script>
