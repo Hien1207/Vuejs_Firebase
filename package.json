@@ -11,6 +11,7 @@
     "@ckeditor/ckeditor5-build-classic": "^29.2.0",
     "@ckeditor/ckeditor5-image": "^30.0.0",
     "@ckeditor/ckeditor5-link": "^30.0.0",
+    "@ckeditor/ckeditor5-upload": "^30.0.0",
     "@ckeditor/ckeditor5-vue2": "^1.0.5",
     "@react-firebase/auth": "^0.2.10",
     "@splidejs/vue-splide": "^0.3.5",
