@@ -206,9 +206,11 @@ export default {
   color: var(--blue-hover);
   cursor: pointer;
 }
-.imga {
-  width: 150%;
-  height: 100%;
+
+.imga{
+  width:150%;
+  height:100%;
+
   cursor: pointer;
 }
 .VueStar {
